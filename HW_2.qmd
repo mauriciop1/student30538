@@ -1,16 +1,17 @@
 ---
 title: "HW_2"
 author: "Mauricio Paniagua"
-output: 
+output:
   pdf_document:
-    keep_tex: true  # Optional: Keeps the intermediate .tex file
+    keep_tex: true
+    number_sections: true
 ---
 Mauricio Paniagua
 Agreement Initials: MP
 
 Problem Set 2:
 ```{python}
-#| cache: true
+
 
 # Import packages
 import os
@@ -34,7 +35,6 @@ df
 Part A, Question 1
 
 ```{python}
-#| cache: true
 # Count missing values in each column
 na_counts = df.isna().sum()
 
@@ -58,7 +58,6 @@ The three variables with most amount of entries missing are:
 
 Part A, Question 3
 ```{python}
-#| cache: true
 contains_city_sticker = df[df['violation_description'].str.contains("Sticker", case = False, na = False)]
 
 contains_city_sticker_code = contains_city_sticker['violation_code']
@@ -73,7 +72,6 @@ As seen the old violation description is: "NO CITY STICKER OR IMPROPER DISPLAY" 
 
 Part A, Question 4:
 ```{python}
-#| cache: true
 print("The price for the violation code 0961425 is: $", contains_city_sticker[contains_city_sticker['violation_code'] == "0964125"]['fine_level1_amount'].values[0])
 
 print("The price for the violation code 0961425B is: $", contains_city_sticker[contains_city_sticker['violation_code'] == "0964125B"]['fine_level1_amount'].values[0])
@@ -84,7 +82,6 @@ print("The price for the violation code 0961425B is: $", contains_city_sticker[c
 Part B, Question 1
 
 ```{python}
-#| cache: true#| cache: true
 
 # Replace the violation codes
 df['violation_code'] = df['violation_code'].replace({'0964125': '0964125NEW', '0964125B': '0964125NEW'})
